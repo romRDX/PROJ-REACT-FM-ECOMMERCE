@@ -3,25 +3,14 @@ import './App.css';
 import './reset.css';
 import RoutesConfig from './routes';
 import { BrowserRouter } from "react-router-dom";
+import Header from './components/header';
 
 function App() {
 
   return (
     <div id='App'>
+      <Header />
       <BrowserRouter>
-        <header>
-          <ul className='menu'>
-            <li>Home</li>
-            <li>Produtos</li>
-            <li>Carrinho</li>
-
-            <li>Meus pedidos</li>
-            
-            <li>Login</li>
-            <li>Meus dados</li>
-          </ul>
-        </header>
-
         <div>
           <RoutesConfig />
         </div>
