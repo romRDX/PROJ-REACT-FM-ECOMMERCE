@@ -1,0 +1,31 @@
+.header__container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    list-style-type: none;
+    font-size: 24px;
+    font-weight: 600;
+    background: lightblue;
+}
+
+.header__nav {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.header__nav__item {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.header__nav__separator {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+}

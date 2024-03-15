@@ -1,19 +1,24 @@
 import React from 'react';
+import './header.css';
 
 const Header = () => {
 
     return (
-        <header>
-          <ul className='menu'>
-            <li>Home</li>
-            <li>Produtos</li>
-            <li>Carrinho</li>
+        <header className='header__container'>
+          <nav className='header__nav'>
+            <a className='header__nav__item' href='/'>Home</a>
+            <a className='header__nav__item'href='/products'>Produtos</a>
+            <a className='header__nav__item' href='/promotions'>Promoções</a>
 
-            <li>Meus pedidos</li>
-            
-            <li>Login</li>
-            <li>Meus dados</li>
-          </ul>
+            <div className='header__nav__separator'>
+                <a className='header__nav__item' href='/cart'>Carrinho</a>
+
+                {/* <a className='header__nav__item'>Meus pedidos</a> */}
+                
+                <a className='header__nav__item' href='/login'>Login</a>
+                {/* <a className='header__nav__item'>Meus dados</a> */}
+            </div>
+          </nav>
         </header>
     )
 }
