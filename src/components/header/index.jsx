@@ -8,7 +8,7 @@ const Header = () => {
           <nav className='header__nav'>
             <a className='header__nav__item' href='/'>Home</a>
             <a className='header__nav__item'href='/products'>Produtos</a>
-            <a className='header__nav__item' href='/promotions'>Promoções</a>
+            <a className='header__nav__item' href='/help'>Ajuda</a>
 
             <div className='header__nav__separator'>
                 <a className='header__nav__item' href='/cart'>Carrinho</a>
