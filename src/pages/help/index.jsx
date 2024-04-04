@@ -3,6 +3,8 @@ import "./help.css";
 
 const HelpPage = () => {
 
+    // https://www.mercadolivre.com.br/ajuda#nav-header
+
     return (
         <div className='help__container'>
             <h1 className='help__title'>Como podemos ajudar?</h1>
