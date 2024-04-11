@@ -1,0 +1,140 @@
+.cart__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+  gap: 10px;
+  position: relative;
+}
+
+.cart__products-container {
+  width: 50%;
+}
+
+.cart__products-list {
+  background: red;
+  padding: 10px;
+  background: wheat;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 700px;
+}
+
+.cart__products-item {
+  padding: 8px;
+  display: flex;
+  margin: 4px 0;
+  background: lightgray;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.cart__product-image {
+  margin-right: 8px;
+}
+
+.cart__product-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart__product-text {
+  font-size: 1.2rem;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__product-name {
+  font-size: 1.5rem;
+}
+
+.cart__product-description {
+  font-size: 1rem;
+}
+
+.cart__product-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 0 20px 0 0;
+}
+
+.cart__product-quantity {}
+
+.cart__product-price {}
+
+.cart__total-price {
+  width: 30%;
+  height: 530px;
+  background: lightgoldenrodyellow;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__total-price__title {
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  padding: 8px;
+  text-align: center;
+  font-size: 1.5rem;
+  background: red;
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.cart__total-price__list {
+  padding: 8px 25px;
+  margin: 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 63%;
+  overflow-y: scroll;
+  box-shadow: inset 0px 3px 3px #888, inset 0px -3px 3px lightgray;
+}
+
+.cart__total-price__item {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid grey;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.cart__total-price__final-value {
+  margin: 15px auto;
+  border: 2px solid black;
+  width: 90%;
+  padding: 6px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  user-select: none;
+}
+
+.cart__total-price__button {
+  padding: 10px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border-color: transparent;
+  width: 90%;
+  margin: 0px auto;
+  box-shadow: 0 0 3px 2px grey;
+  transition: .5s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cart__total-price__button:hover {
+  box-shadow: inset 0 0 3px 2px grey;
+}
