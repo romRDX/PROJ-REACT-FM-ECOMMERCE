@@ -1,0 +1,85 @@
+.register__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.register__content {
+  width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 16px;
+}
+
+.register__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.register__form-input-container {
+  position: relative;
+}
+
+.register__form-input {
+  padding: 6px 6px 6px 10px;
+  border-radius: 8px;
+  max-width: 500px;
+  min-width: 300px;
+  font-size: 1rem;
+}
+
+.register__form-error-message {
+  position: absolute;
+  right: -40px;
+  top: 0;
+  bottom: 0;
+  border: 2px solid red;
+  border-radius: 8px;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__error-message__tooltip {
+  background: red;
+  color: white;
+  padding: 6px;
+  display: none;
+  position: absolute;
+  top: -31px;
+  white-space: nowrap;
+  border-radius: 8px;
+}
+
+.register__form-error-message:hover .register__error-message__tooltip {
+  display: block;
+}
+
+.register__form-submit {
+  padding: 12px 30px;
+  border-radius: 8px;
+  border-color: transparent;
+  width: fit-content;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 20px auto 0;
+  background: green;
+  color: white;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.register__form-submit:hover {
+  background: lightgreen;
+}

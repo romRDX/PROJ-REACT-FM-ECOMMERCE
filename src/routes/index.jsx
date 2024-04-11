@@ -5,6 +5,7 @@ import Products from '../pages/products';
 import Cart from '../pages/cart';
 import HelpPage from '../pages/help';
 import LoginPage from '../pages/login';
+import RegisterPage from '../pages/register';
 
 const RoutesConfig = () => (
     <Routes>
@@ -13,6 +14,7 @@ const RoutesConfig = () => (
         <Route path='/help' element={<HelpPage />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
     </Routes>
 );
 
