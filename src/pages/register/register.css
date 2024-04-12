@@ -60,6 +60,7 @@
   top: -31px;
   white-space: nowrap;
   border-radius: 8px;
+  user-select: none;
 }
 
 .register__form-error-message:hover .register__error-message__tooltip {

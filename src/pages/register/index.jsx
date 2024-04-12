@@ -29,42 +29,42 @@ const Products = () => {
                 <form className='register__form' onSubmit={handleSubmit(onSubmit)}>
                     
                     <div className='register__form-input-container'>
-                        <input className='register__form-input' placeholder='Nome completo' {...register("name", { required: true })} />
+                        <input className='register__form-input' placeholder='Nome completo' {...register("name", { required: 'Campo obrigatório' })} />
                         {
                             errors.name &&
                             <div className='register__form-error-message'>
                                 <p>!!!</p>
 
                                 <div className='register__error-message__tooltip'>
-                                    Campo obrigatório
+                                    {errors.password.message}
                                 </div>
                             </div>
                         }
                     </div>
 
                     <div className='register__form-input-container'>
-                        <input className='register__form-input' type='number' placeholder='CPF' {...register("cpf", { required: true })} />
+                        <input className='register__form-input' type='number' placeholder='CPF' {...register("cpf", { required: 'Campo obrigatório' })} />
                         {
                             errors.cpf &&
                             <div className='register__form-error-message'>
                                 <p>!!!</p>
 
                                 <div className='register__error-message__tooltip'>
-                                    Campo obrigatório
+                                    {errors.password.message}
                                 </div>
                             </div>
                         }
                     </div>
 
                     <div className='register__form-input-container'>
-                        <input className='register__form-input' placeholder='Endereço' {...register("address", { required: true })} />
+                        <input className='register__form-input' placeholder='Endereço' {...register("address", { required: 'Campo obrigatório' })} />
                         {
                             errors.address &&
                             <div className='register__form-error-message'>
                                 <p>!!!</p>
 
                                 <div className='register__error-message__tooltip'>
-                                    Campo obrigatório
+                                    {errors.password.message}
                                 </div>
                             </div>
                         }
@@ -77,7 +77,7 @@ const Products = () => {
                             {...register(
                                 "email",
                                 {
-                                    required: true,
+                                    required: 'Campo obrigatório',
                                     // pattern: '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'
                                 }
                             )}
@@ -88,35 +88,35 @@ const Products = () => {
                                 <p>!!!</p>
 
                                 <div className='register__error-message__tooltip'>
-                                    Campo obrigatório
+                                    {errors.password.message}
                                 </div>
                             </div>
                         }
                     </div>
 
                     <div className='register__form-input-container'>
-                        <input className='register__form-input' type='number' placeholder='Telefone' {...register("phone", { required: true })} />
+                        <input className='register__form-input' type='number' placeholder='Telefone' {...register("phone", { required: 'Campo obrigatório' })} />
                         {
                             errors.phone &&
                             <div className='register__form-error-message'>
                                 <p>!!!</p>
 
                                 <div className='register__error-message__tooltip'>
-                                    Campo obrigatório
+                                    {errors.password.message}
                                 </div>
                             </div>
                         }
                     </div>
 
                     <div className='register__form-input-container'>
-                        <input className='register__form-input' type='password' placeholder='Senha' {...register("password", { required: true })} />
+                        <input className='register__form-input' type='password' placeholder='Senha' {...register("password", { required: 'Campo obrigatório' })} />
                         {
                             errors.password &&
                             <div className='register__form-error-message'>
                                 <p>!!!</p>
 
                                 <div className='register__error-message__tooltip'>
-                                    Campo obrigatório
+                                    {errors.password.message}
                                 </div>
                             </div>
                         }
