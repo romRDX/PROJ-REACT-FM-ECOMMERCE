@@ -21,6 +21,7 @@
 
 .products__filters {
   width: 250px;
+  height: fit-content;
   border: 4px solid black;
   box-sizing: border-box;
   border-radius: 8px;
@@ -35,6 +36,7 @@
 }
 
 .products__filters__list {
+  height: fit-content;
   list-style-type: none;
   display: flex;
   display: grid;
@@ -61,6 +63,8 @@
 
 .products__products-list {
   width: calc(100vw - 300px);
+  height: calc(100vh - 170px);
+  overflow-y: scroll;
   list-style-type: none;
 
   display: grid;
