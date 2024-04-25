@@ -13,19 +13,19 @@ const Carrossel = () => {
 
     // https://www.cea.com.br/
 
-    // useEffect(() => {
-    //     const slideInterval = setInterval(() => {
-    //         setCurrentPosition((prev) => {
-    //             if(prev < classArray.length -1){
-    //                 return prev +1;
-    //             } else return 0;
-    //         })
-    //     }, 5000);
+    useEffect(() => {
+        const slideInterval = setInterval(() => {
+            setCurrentPosition((prev) => {
+                if(prev < classArray.length -1){
+                    return prev +1;
+                } else return 0;
+            })
+        }, 10000);
 
-    //     return () => {
-    //         clearInterval(slideInterval);
-    //     }
-    // }, [])
+        return () => {
+            clearInterval(slideInterval);
+        }
+    }, [])
 
     const forwardArrow = () => {
         setCurrentPosition((prev) => {
@@ -72,9 +72,19 @@ const Carrossel = () => {
             </div>
 
             <div className='carrossel__position-container'>
-                <div className='carrossel__position-item' />
-                <div className='carrossel__position-item' />
-                <div className='carrossel__position-item' />
+                {
+                    classArray.map((item, index) => (
+                        <div
+                            key={item}
+                            onClick={() => setCurrentPosition(index)}
+                            className={
+                                `carrossel__position-item 
+                                ${index == currentPosition && 'carrossel__position-item--active'}
+                                `
+                            }
+                        />
+                    ))
+                }
             </div>
         </div>
     )
