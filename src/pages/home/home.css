@@ -17,40 +17,8 @@
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(240px, 1fr));
   justify-content: center;
-  gap: 8px;
+  gap: 18px 8px;
   flex-wrap: wrap;
 }
 
-.product-list__item {
-  background: lightgray;
-  padding: 8px;
-  border-radius: 8px;
-  width: 240px;
-  box-sizing: border-box;
-  margin: auto;
-}
-
-.product-list__item__img {
-  width: 100%;
-  height: 150px;
-}
-
-.product-list__item__title {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 8px 0 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.product-list__item__price {
-  font-size: 18px;
-  color: white;
-  margin-left: auto;
-  display: flex;
-  padding: 5px;
-  background: blue;
-  border-radius: 8px;
-}
 
