@@ -58,6 +58,11 @@
   transition: .5s;
 }
 
+.products__filters__item--active {
+  background: white;
+  color: red;
+}
+
 .products__filters__item:hover {
   background: white;
 }

@@ -7,24 +7,31 @@ const Products = () => {
 
     const [selectedColor, setSelectedColor] = useState('');
     const [selectedSize, setSelectedSize] = useState('');
+    const [selectedPriceRange, setSelectedPriceRange] = useState([]);
 
-    const filterByColor = (listData, colorData) => {
-        const newList = listData.filter((item) => item.colorName.toLowerCase() == colorData.toLowerCase());
-        return colorData ? newList : listData;
-    }
+    const filterByAll = () => {
+        const newList = productList.filter((item) => (
+            (selectedColor ? (item.colorName.toLowerCase() == selectedColor.toLowerCase()) : true) &&
+            (selectedSize ? (item.size.toLowerCase() == selectedSize.toLowerCase()) : true) &&
+            (selectedPriceRange.length != 0 ? (item.value >= selectedPriceRange[0] && item.value <= selectedPriceRange[1]) : true)
+        ));
 
-    const filterBySize = (listData, sizeData) => {
-        // console.log("ASD: ", listData[0].size.toLowerCase());
-        const newList = listData.filter((item) => item.size.toLowerCase() == sizeData.toLowerCase());
-        // const newList = listData.filter((item) => {
-        //     console.log("ASD: ", item.size);
-        // });
-        return sizeData ? newList : listData;
-        return [];
+        return newList;
     }
 
     const resetFilters = () => {
         setSelectedColor('');
+        setSelectedPriceRange([]);
+        setSelectedSize('');
+    }
+
+    // console.log("asd: ", selectedPriceRange);
+
+    function arrayEquals(a, b) {
+        return Array.isArray(a) &&
+            Array.isArray(b) &&
+            a.length === b.length &&
+            a.every((val, index) => val === b[index]);
     }
 
     return (
@@ -36,26 +43,104 @@ const Products = () => {
 
                     <p className='products__filters__title'>Preço</p>
                     <ul className='products__filters__list'>
-                        <li className='products__filters__item'>até R30,00</li>
-                        <li className='products__filters__item'>de R$31,00 até R$60,00</li>
-                        <li className='products__filters__item'>de R$61,00 até R$90,00</li>
-                        <li className='products__filters__item'>Acima de R$90,00</li>
+
+                        <li 
+                            onClick={() => setSelectedPriceRange([0,30])}
+                            className={
+                                `products__filters__item ${ arrayEquals(selectedPriceRange,[0,30]) && 'products__filters__item--active'}`
+                            }
+                        >
+                            até R30,00
+                        </li>
+
+                        <li
+                            onClick={() => setSelectedPriceRange([31,60])}
+                            className={
+                                `products__filters__item ${ arrayEquals(selectedPriceRange,[31,60]) && 'products__filters__item--active'}`
+                            }
+                        >
+                            de R$31,00 até R$60,00
+                        </li>
+
+                        <li
+                            onClick={() => setSelectedPriceRange([61,90])}
+                            className={
+                                `products__filters__item ${ arrayEquals(selectedPriceRange,[61,90]) && 'products__filters__item--active'}`
+                            }
+                        >
+                            de R$61,00 até R$90,00
+                        </li>
+
+                        <li
+                            onClick={() => setSelectedPriceRange([91,1000])}
+                            className={
+                                `products__filters__item ${ arrayEquals(selectedPriceRange,[91,1000]) && 'products__filters__item--active'}`
+                            }
+                        >
+                            Acima de R$90,00
+                        </li>
                     </ul>
 
                     <p className='products__filters__title'>Tamanhos</p>
                     <ul className='products__filters__list'>
-                        <li onClick={() => setSelectedSize('p')} className='products__filters__item'>P</li>
-                        <li onClick={() => setSelectedSize('m')}className='products__filters__item'>M</li>
-                        <li onClick={() => setSelectedSize('g')}className='products__filters__item'>G</li>
-                        <li onClick={() => setSelectedSize('gg')}className='products__filters__item'>GG</li>
+                        <li
+                            onClick={() => setSelectedSize('p')}
+                            className={
+                                `products__filters__item ${selectedSize == 'p' && 'products__filters__item--active'}`
+                            }
+                        > P </li>
+
+                        <li 
+                            onClick={() => setSelectedSize('m')}
+                            className={
+                                `products__filters__item ${selectedSize == 'm' && 'products__filters__item--active'}`
+                            }
+                        > M </li>
+
+                        <li 
+                            onClick={() => setSelectedSize('g')}
+                            className={
+                                `products__filters__item ${selectedSize == 'g' && 'products__filters__item--active'}`
+                            }
+                        > G </li>
+
+                        <li 
+                            onClick={() => setSelectedSize('gg')}
+                            className={
+                                `products__filters__item ${selectedSize == 'gg' && 'products__filters__item--active'}`
+                            }
+                        > GG </li>
                     </ul>
 
                     <p className='products__filters__title'>Cores</p>
                     <ul className='products__filters__list'>
-                        <li onClick={() => setSelectedColor('vermelho')} className='products__filters__item'>vermelho</li>
-                        <li onClick={() => setSelectedColor('azul')} className='products__filters__item'>azul</li>
-                        <li onClick={() => setSelectedColor('verde')} className='products__filters__item'>verde</li>
-                        <li onClick={() => setSelectedColor('amarelo')} className='products__filters__item'>amarelo</li>
+                        <li 
+                            onClick={() => setSelectedColor('vermelho')}
+                            className={
+                                `products__filters__item ${selectedColor == 'vermelho' && 'products__filters__item--active'}`
+                            }
+                        > vermelho </li>
+
+                        <li 
+                            onClick={() => setSelectedColor('azul')}
+                            className={
+                                `products__filters__item ${selectedColor == 'azul' && 'products__filters__item--active'}`
+                            }
+                        > azul </li>
+
+                        <li 
+                            onClick={() => setSelectedColor('verde')}
+                            className={
+                                `products__filters__item ${selectedColor == 'verde' && 'products__filters__item--active'}`
+                            }
+                        > verde </li>
+
+                        <li
+                            onClick={() => setSelectedColor('amarelo')}
+                            className={
+                                `products__filters__item ${selectedColor == 'amarelo' && 'products__filters__item--active'}`
+                            }
+                        > amarelo </li>
                     </ul>
 
                     <button onClick={resetFilters} className='products__reset-filter'>Resetar Filtros</button>
@@ -64,9 +149,8 @@ const Products = () => {
                 <main className='products__products-container'>
                     <ul className='products__products-list'>
                         {
-                            // filterByColor(productList, selectedColor).map((item) => (
-                            filterBySize(productList, selectedSize).map((item) => (
-                                <ProductItem data={item} />
+                            filterByAll().map((item) => (
+                                <ProductItem key={item.id} data={item} />
                             ))
                         }
                     </ul>

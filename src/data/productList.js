@@ -13,7 +13,7 @@ const productList = [
         value: 20,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum nisi quis condimentum lobortis.',
         id: 2,
-        size: 'GG',
+        size: 'G',
     },
     {
         name: 'Blusa cropped',
@@ -21,7 +21,7 @@ const productList = [
         value: 30,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum nisi quis condimentum lobortis.',
         id: 3,
-        size: 'G',
+        size: 'GG',
     },
     {
         name: 'Vestido casual',
