@@ -3,8 +3,8 @@
     padding: 8px;
     border-radius: 8px;
     width: 240px;
+    height: 320px;
     box-sizing: border-box;
-    margin: auto;
   }
   
   .product-list__item__img {
@@ -19,6 +19,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .product-list__item__name {
+    font-size: 1.2rem;
+    font-weight: bold;
   }
   
   .product-list__item__price {
