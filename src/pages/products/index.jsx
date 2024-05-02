@@ -25,7 +25,11 @@ const Products = () => {
         setSelectedSize('');
     }
 
-    // console.log("asd: ", selectedPriceRange);
+    const handleChangeFilter = (stateValue, newValue, resetValue) => {
+        const isEqual = stateValue == newValue;
+
+        return isEqual ? resetValue : newValue;
+    }
 
     function arrayEquals(a, b) {
         return Array.isArray(a) &&
@@ -50,7 +54,7 @@ const Products = () => {
                                 `products__filters__item ${ arrayEquals(selectedPriceRange,[0,30]) && 'products__filters__item--active'}`
                             }
                         >
-                            até R30,00
+                            de R$0,00 até R$30,00
                         </li>
 
                         <li
@@ -84,28 +88,28 @@ const Products = () => {
                     <p className='products__filters__title'>Tamanhos</p>
                     <ul className='products__filters__list'>
                         <li
-                            onClick={() => setSelectedSize('p')}
+                            onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'p', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'p' && 'products__filters__item--active'}`
                             }
                         > P </li>
 
                         <li 
-                            onClick={() => setSelectedSize('m')}
+                            onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'm', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'm' && 'products__filters__item--active'}`
                             }
                         > M </li>
 
                         <li 
-                            onClick={() => setSelectedSize('g')}
+                            onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'g', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'g' && 'products__filters__item--active'}`
                             }
                         > G </li>
 
                         <li 
-                            onClick={() => setSelectedSize('gg')}
+                            onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'gg', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'gg' && 'products__filters__item--active'}`
                             }
@@ -115,28 +119,28 @@ const Products = () => {
                     <p className='products__filters__title'>Cores</p>
                     <ul className='products__filters__list'>
                         <li 
-                            onClick={() => setSelectedColor('vermelho')}
+                            onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'vermelho', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'vermelho' && 'products__filters__item--active'}`
                             }
                         > vermelho </li>
 
                         <li 
-                            onClick={() => setSelectedColor('azul')}
+                            onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'azul', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'azul' && 'products__filters__item--active'}`
                             }
                         > azul </li>
 
                         <li 
-                            onClick={() => setSelectedColor('verde')}
+                            onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'verde', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'verde' && 'products__filters__item--active'}`
                             }
                         > verde </li>
 
                         <li
-                            onClick={() => setSelectedColor('amarelo')}
+                            onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'amarelo', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'amarelo' && 'products__filters__item--active'}`
                             }

@@ -79,6 +79,22 @@ const productList = [
         id: 10,
         size: 'P',
     },
+    {
+        name: 'Cachecol',
+        colorName: 'Verde',
+        value: 110,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum nisi quis condimentum lobortis.',
+        id: 11,
+        size: 'G',
+    },
+    {
+        name: 'Saia rodada',
+        colorName: 'Vermelho',
+        value: 120,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum nisi quis condimentum lobortis.',
+        id: 12,
+        size: 'GG',
+    },
 ];
 
 export default productList;
