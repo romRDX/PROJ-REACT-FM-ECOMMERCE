@@ -4,6 +4,7 @@ import './reset.css';
 import RoutesConfig from './routes';
 import { BrowserRouter } from "react-router-dom";
 import Header from './components/header';
+import AppProvider from './hooks';
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
       <Header />
       <BrowserRouter>
         <div>
-          <RoutesConfig />
+          <AppProvider>
+            <RoutesConfig />
+          </AppProvider>
         </div>
       </BrowserRouter>
     </div>

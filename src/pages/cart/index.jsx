@@ -1,7 +1,10 @@
 import React from 'react';
 import "./cart.css";
+import { useCart } from '../../hooks/useCart';
 
 const Cart = () => {
+
+    const { cartProductsList } = useCart();
 
     const fakeCart = [
         {
