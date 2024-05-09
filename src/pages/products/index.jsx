@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./products.css";
 import productList from '../../data/productList';
 import ProductItem from '../../components/productItem';
+import FilterItem from '../../components/filterItem/filterItem';
 
 const Products = () => {
 
@@ -31,6 +32,12 @@ const Products = () => {
         return isEqual ? resetValue : newValue;
     }
 
+    const handleChangePriceFilter = (stateValue, newValue, resetValue) => {
+        const isEqual = JSON.stringify(stateValue) == JSON.stringify(newValue);
+
+        return isEqual ? resetValue : newValue;
+    }
+
     function arrayEquals(a, b) {
         return Array.isArray(a) &&
             Array.isArray(b) &&
@@ -48,103 +55,105 @@ const Products = () => {
                     <p className='products__filters__title'>Preço</p>
                     <ul className='products__filters__list'>
 
-                        <li 
-                            onClick={() => setSelectedPriceRange([0,30])}
-                            className={
-                                `products__filters__item ${ arrayEquals(selectedPriceRange,[0,30]) && 'products__filters__item--active'}`
-                            }
-                        >
-                            de R$0,00 até R$30,00
-                        </li>
+                        <FilterItem
+                            onClick={() => setSelectedPriceRange(handleChangePriceFilter(selectedPriceRange,[0,30], []))}
+                            text={'de R$0,00 até R$30,00'}
+                            className={`products__filters__item ${ arrayEquals(selectedPriceRange,[0,30]) && 'products__filters__item--active'}`}
+                        />
 
-                        <li
-                            onClick={() => setSelectedPriceRange([31,60])}
+                        <FilterItem
+                            onClick={() => setSelectedPriceRange(handleChangePriceFilter(selectedPriceRange,[31,60], []))}
                             className={
                                 `products__filters__item ${ arrayEquals(selectedPriceRange,[31,60]) && 'products__filters__item--active'}`
                             }
-                        >
-                            de R$31,00 até R$60,00
-                        </li>
-
-                        <li
-                            onClick={() => setSelectedPriceRange([61,90])}
+                            text={'de R$31,00 até R$60,00'}
+                        />
+                            
+                        <FilterItem
+                            onClick={() => setSelectedPriceRange(handleChangePriceFilter(selectedPriceRange,[61,90], []))}
                             className={
                                 `products__filters__item ${ arrayEquals(selectedPriceRange,[61,90]) && 'products__filters__item--active'}`
                             }
-                        >
-                            de R$61,00 até R$90,00
-                        </li>
-
-                        <li
-                            onClick={() => setSelectedPriceRange([91,1000])}
+                            text={'de R$61,00 até R$90,00'}
+                        />
+                        
+                        <FilterItem
+                            onClick={() => setSelectedPriceRange(handleChangePriceFilter(selectedPriceRange,[91,1000], []))}
                             className={
                                 `products__filters__item ${ arrayEquals(selectedPriceRange,[91,1000]) && 'products__filters__item--active'}`
                             }
-                        >
-                            Acima de R$90,00
-                        </li>
+                            text={'Acima de R$90,00'}
+                        />
                     </ul>
 
                     <p className='products__filters__title'>Tamanhos</p>
                     <ul className='products__filters__list'>
-                        <li
+                        <FilterItem
                             onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'p', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'p' && 'products__filters__item--active'}`
                             }
-                        > P </li>
+                            text={"P"}
+                        /> 
 
-                        <li 
+                        <FilterItem
                             onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'm', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'm' && 'products__filters__item--active'}`
                             }
-                        > M </li>
+                            text={'M'}
+                        /> 
 
-                        <li 
+                        <FilterItem
                             onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'g', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'g' && 'products__filters__item--active'}`
                             }
-                        > G </li>
+                            text={'G'}
+                        /> 
 
-                        <li 
+                        <FilterItem
                             onClick={() => setSelectedSize(handleChangeFilter(selectedSize, 'gg', ''))}
                             className={
                                 `products__filters__item ${selectedSize == 'gg' && 'products__filters__item--active'}`
                             }
-                        > GG </li>
+                            text={'GG'}
+                        /> 
                     </ul>
 
                     <p className='products__filters__title'>Cores</p>
                     <ul className='products__filters__list'>
-                        <li 
+                        <FilterItem
                             onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'vermelho', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'vermelho' && 'products__filters__item--active'}`
                             }
-                        > vermelho </li>
+                            text={'vermelho '}
+                        /> 
 
-                        <li 
+                        <FilterItem
                             onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'azul', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'azul' && 'products__filters__item--active'}`
                             }
-                        > azul </li>
+                            text={'azul '}
+                        />
 
-                        <li 
+                        <FilterItem
                             onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'verde', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'verde' && 'products__filters__item--active'}`
                             }
-                        > verde </li>
+                            text={'verde'}
+                        /> 
 
-                        <li
+                        <FilterItem
                             onClick={() => setSelectedColor(handleChangeFilter(selectedColor, 'amarelo', ''))}
                             className={
                                 `products__filters__item ${selectedColor == 'amarelo' && 'products__filters__item--active'}`
                             }
-                        > amarelo </li>
+                            text={'amarelo '}
+                        />
                     </ul>
 
                     <button onClick={resetFilters} className='products__reset-filter'>Resetar Filtros</button>

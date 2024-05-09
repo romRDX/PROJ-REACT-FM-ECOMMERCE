@@ -46,27 +46,6 @@
   margin: 10px 0 25px;
 }
 
-.products__filters__item {
-  background: red;
-  padding: 4px 0;
-  font-size: 1.1rem;
-  border-radius: 6px;
-  border: 2px solid black;
-  text-align: center;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: .5s;
-}
-
-.products__filters__item--active {
-  background: white;
-  color: red;
-}
-
-.products__filters__item:hover {
-  background: white;
-}
-
 .products__products-container {}
 
 .products__products-list {
