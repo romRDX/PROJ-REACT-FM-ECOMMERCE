@@ -1,12 +1,15 @@
 import React from "react";
 import { CartProvider } from './useCart';
+import { AuthProvider } from './useAuth';
 
 const AppProvider = ({ children }) => {
 
     return (
-        <CartProvider>
-            { children }
-        </CartProvider>
+        <AuthProvider>
+            <CartProvider>
+                { children }
+            </CartProvider>
+        </AuthProvider>
     )
 }
 
