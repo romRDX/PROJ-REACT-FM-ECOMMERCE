@@ -1,7 +1,10 @@
 import react from 'react';
 import './productItem.css';
+import { useCart } from '../../hooks/useCart';
 
 const ProductItem = ({ data }) => {
+
+    const { handleAddProduct } = useCart();
 
     return (
         <li className='product-list__item'>
@@ -9,10 +12,14 @@ const ProductItem = ({ data }) => {
             <p className='product-list__item__name'>
                 {data.name} - {data.colorName} - {data.size}
             </p>
-            <span className='product-list__item__price'>R$ {data.value},00</span>
+            
             <p>
                 { data.description }
             </p>
+
+            <span className='product-list__item__price'>R$ {data.value},00</span>
+
+            <button onClick={() => handleAddProduct(data)} className='product-list__add-item-button'>Add to cart</button>
         </li>
     )
 }

@@ -10,8 +10,8 @@ function App() {
 
   return (
     <div id='App'>
-      <Header />
       <BrowserRouter>
+        <Header />
         <div>
           <AppProvider>
             <RoutesConfig />
