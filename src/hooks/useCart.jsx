@@ -24,11 +24,58 @@ export const CartProvider = ({ children }) => {
                 return [...prev, { ...newProduct, quantity: 1 }]
             }
         });
-    }, [])
+    }, []);
+
+    const handleIncrementProductQuantity = useCallback((productId) => {
+        setCartProductsList(prev => {
+            return prev.map((item) => {
+                if(item.id == productId){
+                    return {
+                        ...item,
+                        quantity: item.quantity + 1
+                    }
+                }
+
+                return item;
+            })
+        });
+    }, []);
+
+    const handleDeleteProduct = useCallback((productId) => {
+        setCartProductsList(prev => {
+            return prev.filter((item) => item.id != productId);
+        });
+    }, []);
+
+    const handleDecrementProductQuantity = useCallback((productId) => {
+        setCartProductsList(prev => {
+            return prev.map((item) => {
+                if(item.id == productId){
+
+                    if(item.quantity == 0){
+                        handleDeleteProduct(productId);
+                    } else {
+                        return {
+                            ...item,
+                            quantity: item.quantity - 1
+                        }
+                    }
+                }
+
+                return item;
+            })
+        });
+    }, []);
 
     return (
         <CartContext.Provider
-            value={{ cartProductsList, handleAddProduct }}
+            value={{
+                cartProductsList,
+                handleAddProduct,
+                handleIncrementProductQuantity,
+                handleDecrementProductQuantity,
+                handleDeleteProduct
+            }}
         >
             { children }
         </CartContext.Provider>
