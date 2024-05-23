@@ -1,11 +1,9 @@
-import React, { Children, createContext, useCallback, useContext, useState } from "react";
+import React, { createContext, useCallback, useContext, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cartProductsList, setCartProductsList] = useState([]);
-
-    console.log("CART PRODUCTS: ", cartProductsList);
 
     const handleAddProduct = useCallback((newProduct) => {
 

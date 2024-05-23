@@ -1,8 +1,11 @@
 import React from 'react';
 import './header.css';
 import { Link } from "react-router-dom";
+import { useAuth } from '../../hooks/useAuth';
 
 const Header = () => {
+
+  const { authData, handleLogout } = useAuth();
 
   return (
     <header className='header__container'>
@@ -14,12 +17,20 @@ const Header = () => {
         <div className='header__nav__separator'>
             <Link className='header__nav__item' to='/cart'>Carrinho</Link>
 
-            {/* <a className='header__nav__item'>Meus pedidos</a> */}
-            
-            <Link className='header__nav__item' to='/login'>Login</Link>
+            {
+              authData ? 
+              <>
+                <a className='header__nav__item'>Meus pedidos</a>
+                <a className='header__nav__item'>Meus dados</a>
+                <a onClick={handleLogout} className='header__nav__item'>Deslogar</a>
+              </>
+              :
+              <>
+                <Link className='header__nav__item' to='/login'>Login</Link>
 
-            <Link className='header__nav__item' to='/register'>Cadastrar</Link>
-            {/* <a className='header__nav__item'>Meus dados</a> */}
+                <Link className='header__nav__item' to='/register'>Cadastrar</Link>
+              </>
+            }
         </div>
       </nav>
     </header>

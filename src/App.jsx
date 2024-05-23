@@ -11,12 +11,12 @@ function App() {
   return (
     <div id='App'>
       <BrowserRouter>
-        <Header />
-        <div>
-          <AppProvider>
+        <AppProvider>
+          <Header />
+          <div>
             <RoutesConfig />
-          </AppProvider>
-        </div>
+          </div>
+        </AppProvider>
       </BrowserRouter>
     </div>
   )
