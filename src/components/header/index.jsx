@@ -21,7 +21,7 @@ const Header = () => {
               authData ? 
               <>
                 <a className='header__nav__item'>Meus pedidos</a>
-                <a className='header__nav__item'>Meus dados</a>
+                <Link className='header__nav__item' to='/profile'>Meus dados</Link>
                 <a onClick={handleLogout} className='header__nav__item'>Deslogar</a>
               </>
               :

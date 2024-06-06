@@ -6,6 +6,7 @@ import Cart from '../pages/cart';
 import HelpPage from '../pages/help';
 import LoginPage from '../pages/login';
 import RegisterPage from '../pages/register';
+import Profile from '../pages/profile';
 
 const RoutesConfig = () => (
     <Routes>
@@ -15,6 +16,7 @@ const RoutesConfig = () => (
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
+        <Route path='/profile' element={<Profile />} />
     </Routes>
 );
 

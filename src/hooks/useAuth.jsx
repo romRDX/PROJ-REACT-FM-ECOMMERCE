@@ -5,6 +5,8 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [authData, setAuthData] = useState(null);
+    const [activeAddress, setActiveAddress] = useState(1);
+    const [activeCreditCard, setActiveCreditCard] = useState(123456);
 
     const navigate = useNavigate();
 
@@ -15,8 +17,21 @@ export const AuthProvider = ({ children }) => {
                 name: "Rômullo Sander",
                 email: 'teste@gmail.com',
                 id: 1,
-                address: 'Rua Front Masters, Nº123, São Paulo - SP',
-                creditCard: 123456
+                address: [
+                    {
+                        id: 1,
+                        name: 'Rua Front Masters, Nº123, São Paulo - SP'
+                    },
+                    {
+                        id: 2,
+                        name: 'Rua React, Nº321, São Paulo - SP'
+                    },
+                    {
+                        id: 3,
+                        name: 'Rua Next.Js, Nº321, São Paulo - SP'
+                    },
+                ],
+                creditCards: [123456, 789012, 11223344],
             }
 
             const expireData = new Date();
@@ -36,7 +51,7 @@ export const AuthProvider = ({ children }) => {
     const handleLogout = useCallback(() => {
         setAuthData(null);
         document.cookie = "fm_auth=; Max-Age=0; path=/;";
-    }, [])
+    }, []);
 
     useEffect(() => {
         const cookies = document.cookie;
@@ -55,7 +70,11 @@ export const AuthProvider = ({ children }) => {
             value={{
                 authData,
                 handleLogIn,
-                handleLogout
+                handleLogout,
+                activeAddress,
+                setActiveAddress,
+                activeCreditCard,
+                setActiveCreditCard
             }}
         >
             { children }
